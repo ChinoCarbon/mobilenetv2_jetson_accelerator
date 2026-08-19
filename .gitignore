@@ -1,0 +1,35 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+dist/
+build/
+*.so
+
+# Data & checkpoints
+data/*/
+!data/README.md
+!data/prepare_cifar10.py
+checkpoints/
+*.pt
+*.pth
+*.onnx
+*.engine
+
+# IDE & OS
+.idea/
+.vscode/
+*.swp
+.DS_Store
+
+# Logs
+logs/
+runs/
+*.log
+wandb/
+
+# CUDA build
+*.o
+*.cu.o

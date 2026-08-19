@@ -1,0 +1,32 @@
+CompileFlags:
+  Add:
+    - -I./cuda/include
+    - -I/usr/local/cuda/include
+    - --cuda-path=/usr/local/cuda
+    - --cuda-gpu-arch=sm_89
+
+---
+# .cuh 头文件：当作 C++ 头文件处理，不单独编译
+If:
+  PathMatch: ".*\\.cuh"
+CompileFlags:
+  Add:
+    - -I./cuda/include
+    - -I/usr/local/cuda/include
+    - -x
+    - c++-header
+  Remove:
+    - --cuda-gpu-arch=.*
+    - -x
+    - cuda
+
+---
+# .cu 源文件：当作 CUDA 处理
+If:
+  PathMatch: ".*\\.cu"
+CompileFlags:
+  Add:
+    - -x
+    - cuda
+    - --cuda-path=/usr/local/cuda
+    - --cuda-gpu-arch=sm_89

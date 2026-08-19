@@ -1,0 +1,24 @@
+# 训练与 benchmark 默认配置
+
+data:
+  dir: data/cifar10_imagefolder
+  input_size: 224          # 训练时 resize 到此尺寸
+  num_workers: 4
+
+train:
+  epochs: 30
+  batch_size: 64
+  lr: 0.01
+  momentum: 0.9
+  weight_decay: 1.0e-4
+  pretrained: true
+  checkpoint_dir: checkpoints
+
+benchmark:
+  warmup: 100
+  iterations: 500
+  batch_sizes: [1, 8]
+
+model:
+  width_mult: 1.0
+  dropout: 0.2
